@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 import { Trigger } from '../../components/Trigger/Trigger';
 import { Modal } from 'antd';
-import { Icon } from '../../components/Icon/Icon';
 import ReactPlayer from 'react-player'
 import styles from './Page.module.css';
 import { createMachine } from "xstate";
 import { useMachine } from '@xstate/react';
 import { IconedButton } from '../IconedButton/IconedButton';
+import { Footer } from '../Footer/Footer';
 
 const videoUrl = "https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8";
 enum PlayerState {
@@ -57,6 +57,9 @@ export function Page() {
     const showModal = useCallback(() => {
         setIsModalVisible(true);
     }, []);
+    const hideModal = useCallback(() => {
+        setIsModalVisible(false);
+    }, []);
     const [state, send] = useMachine(machine);
 
     
@@ -70,9 +73,11 @@ export function Page() {
                 // https://github.com/ant-design/ant-design/issues/18207
                 <Modal
                     visible={isModalVisible}
-                    okText={<IconedButton className={styles.img} name="playpause" onClick={() => send('toggle')}/>}
-                    cancelText={<Icon className={styles.img} name="playpause"/>}
+                    // okText={<IconedButton className={styles.img} name="playpause" onClick={() => send('toggle')}/>}
+                    // cancelText={<IconedButton className={styles.img} name="playpause" onClick={() => void 0}/>}
                     className={state.value === PlayerState.FULL ? styles.full : styles.mini}
+                    onCancel={hideModal}
+                    footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => void 0}/>}
                 >
                     <ReactPlayer
                         url={videoUrl}
