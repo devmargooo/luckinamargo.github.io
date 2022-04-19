@@ -13,47 +13,49 @@ enum PlayerState {
     MINI = "MINI"
 }
 
-const machine = createMachine(
-    {
-      id: "player",
-      initial: PlayerState.FULL,
-      states: {
-        [PlayerState.MINI]: {
-          meta: {
-            description: "The full-screen video"
-          },
-          on: {
-            toggle: PlayerState.FULL
-          }
-        },
-        [PlayerState.FULL]: {
-          entry: "playVideo",
-          exit: "pauseVideo",
-          meta: {
-            description: "Mini video"
-          },
-          on: {
-            toggle: PlayerState.MINI,
-            "key.escape": PlayerState.MINI,
-            "video.ended": PlayerState.MINI
-          }
-        }
-      }
-    },
-    {
-      actions: {
-        playVideo: () => {
-          console.log("play");
-        },
-        pauseVideo: () => {
-            console.log("pause");
-        }
-      }
-    }
-);
-
 export function Page() {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isPlaying, setPlaying] = useState(false);
+
+    const machine = createMachine(
+        {
+          id: "player",
+          initial: PlayerState.FULL,
+          states: {
+            [PlayerState.MINI]: {
+              meta: {
+                description: "The mini video"
+              },
+              on: {
+                toggle: PlayerState.FULL
+              }
+            },
+            [PlayerState.FULL]: {
+              entry: "playVideo",
+              exit: "pauseVideo",
+              meta: {
+                description: "The full-screen video"
+              },
+              on: {
+                toggle: PlayerState.MINI,
+                "key.escape": PlayerState.MINI,
+                "video.ended": PlayerState.MINI
+              }
+            }
+          }
+        },
+        {
+          actions: {
+            playVideo: () => {
+              setPlaying(true);
+            },
+            pauseVideo: () => {
+                setPlaying(false);
+            }
+          }
+        }
+    );
+
     const showModal = useCallback(() => {
         setIsModalVisible(true);
     }, []);
@@ -74,7 +76,11 @@ export function Page() {
                     cancelText={<Icon className={styles.img} name="playpause"/>}
                     className={styles.full}
                 >
-                    <ReactPlayer url={videoUrl} />
+                    <ReactPlayer
+                        url={videoUrl}
+                        playing={isPlaying}
+                        loop
+                    />
                 </Modal>
             }
         </div>
