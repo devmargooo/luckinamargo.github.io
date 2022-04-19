@@ -9,3 +9,10 @@
     height: 720px;
     transform-origin: 554px 294px!important;
 }
+
+.mini {
+    width: 480px;
+    height: 360px;
+    transform-origin: 554px 294px;
+    top: 10px;
+}

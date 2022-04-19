@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player'
 import styles from './Page.module.css';
 import { createMachine } from "xstate";
 import { useMachine } from '@xstate/react';
+import { IconedButton } from '../IconedButton/IconedButton';
 
 const videoUrl = "https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8";
 enum PlayerState {
@@ -32,14 +33,11 @@ export function Page() {
             },
             [PlayerState.FULL]: {
               entry: "playVideo",
-              exit: "pauseVideo",
               meta: {
                 description: "The full-screen video"
               },
               on: {
                 toggle: PlayerState.MINI,
-                "key.escape": PlayerState.MINI,
-                "video.ended": PlayerState.MINI
               }
             }
           }
@@ -72,9 +70,9 @@ export function Page() {
                 // https://github.com/ant-design/ant-design/issues/18207
                 <Modal
                     visible={isModalVisible}
-                    okText={<Icon className={styles.img} name="playpause"/>}
+                    okText={<IconedButton className={styles.img} name="playpause" onClick={() => send('toggle')}/>}
                     cancelText={<Icon className={styles.img} name="playpause"/>}
-                    className={styles.full}
+                    className={state.value === PlayerState.FULL ? styles.full : styles.mini}
                 >
                     <ReactPlayer
                         url={videoUrl}

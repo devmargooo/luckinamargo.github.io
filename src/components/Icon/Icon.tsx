@@ -9,7 +9,7 @@ function map(name:string) {
     }
 }
 
-export function Icon ({name, className}:{name:string; className:string}) {
+export function Icon ({name, className}:{name:string; className?:string}) {
     return (
         <img className={className} src={map(name)}/>
     )
