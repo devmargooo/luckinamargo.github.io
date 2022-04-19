@@ -1,12 +1,9 @@
-import React from 'react';
-import { Trigger } from './components/Trigger/Trigger';
+import { Page } from './components/Page/Page';
 
 function App() {
     return (
-        <div className="app">
-            <Trigger/>
-        </div>
-    );
+        <Page/>
+    )
 }
 
 export default App;
