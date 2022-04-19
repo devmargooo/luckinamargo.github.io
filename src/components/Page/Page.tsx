@@ -26,7 +26,7 @@ export function Page() {
                     okText={<Icon className={styles.img} name="playpause"/>}
                     cancelText={<Icon className={styles.img} name="playpause"/>}
                 >
-                    <ReactPlayer url={videoUrl} />
+                    <ReactPlayer  url={videoUrl} />
                 </Modal>
             }
         </div>
