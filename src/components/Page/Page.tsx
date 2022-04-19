@@ -73,11 +73,9 @@ export function Page() {
                 // https://github.com/ant-design/ant-design/issues/18207
                 <Modal
                     visible={isModalVisible}
-                    // okText={<IconedButton className={styles.img} name="playpause" onClick={() => send('toggle')}/>}
-                    // cancelText={<IconedButton className={styles.img} name="playpause" onClick={() => void 0}/>}
                     className={state.value === PlayerState.FULL ? styles.full : styles.mini}
                     onCancel={hideModal}
-                    footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => void 0}/>}
+                    footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => setPlaying(!isPlaying)}/>}
                 >
                     <ReactPlayer
                         url={videoUrl}

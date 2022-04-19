@@ -1,10 +1,11 @@
 import { IconedButton } from "../IconedButton/IconedButton";
+import { VideoState } from "../Page/interfaces";
 import styles from "./Footer.module.css";
 
 interface IFooterProps {
     onToggle:() => void;
     onPlayPause:() => void;
-    videoState?: 'play' | 'pause';
+    videoState?: VideoState;
 }
 
 export function Footer({onToggle, onPlayPause}:IFooterProps) {
