@@ -3,3 +3,9 @@
     width: 20px;
     height: 20px;
 }
+
+.full {
+    width: 1080px!important;
+    height: 720px;
+    transform-origin: 554px 294px!important;
+}
