@@ -9,6 +9,8 @@ import { PlayerState } from './interfaces';
 import { getPlayerMachine } from './getPlayerMachine';
 
 const videoUrl = "https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8";
+const fullPlayerWidth = 1080;
+const miniPlayerWidth = 480;
 
 export function Page() {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -43,12 +45,15 @@ export function Page() {
                     visible={isModalVisible}
                     className={state.value === PlayerState.FULL ? styles.full : styles.mini}
                     onCancel={hideModal}
+                    bodyStyle={{paddingTop: 50}}
                     footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => setPlaying(!isPlaying)}/>}
                 >
                     <ReactPlayer
                         url={videoUrl}
                         playing={isPlaying}
                         loop
+                        width='100%'
+                        height='100%'
                     />
                 </Modal>
             }

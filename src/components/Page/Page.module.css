@@ -6,13 +6,17 @@
 
 .full {
     width: 1080px!important;
-    height: 720px;
+    height: 720px!important;
     transform-origin: 554px 294px!important;
 }
 
 .mini {
-    width: 480px;
+    width: 480px!important;
     height: 360px;
-    transform-origin: 554px 294px;
+    transform-origin: 554px 294px!important;
     top: 10px;
+}
+
+.video {
+    width: fit-content!important;
 }
