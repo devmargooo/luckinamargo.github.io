@@ -1,11 +1,45 @@
 .toggleBtn {
-    background: blue;
-    width: 20px;
-    height: 20px;
+    border-radius: 2px;
+    height: 32px;
+    padding: 1.4px 0;
+    width: 32px;
+    background: #1890ff;
+    border: none; 
+    color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.toggleBtn:hover {
+    background: #40a9ff;
+    border-color: #40a9ff;
 }
 
 .playPauseBtn {
-    background: green;
-    width: 20px;
-    height: 20px;
+    background-image: none;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 40px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    color: rgba(0,0,0,.85);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 32px;
+    line-height: 1.5715;
+    padding: 4px 15px;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.playPauseBtn:hover {
+    border-color: #40a9ff;
 }

@@ -11,7 +11,7 @@ interface IFooterProps {
 export function Footer({onToggle, onPlayPause}:IFooterProps) {
     return (
         <div>
-            <IconedButton className={styles.toggleBtn} name="playpause" onClick={onToggle}/>
+            <IconedButton className={styles.toggleBtn} name="scale" onClick={onToggle}/>
             <IconedButton className={styles.playPauseBtn} name="playpause" onClick={onPlayPause}/>
         </div>
     )
