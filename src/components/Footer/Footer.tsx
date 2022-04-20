@@ -5,14 +5,14 @@ import styles from "./Footer.module.css";
 interface IFooterProps {
     onToggle:() => void;
     onPlayPause:() => void;
-    videoState?: VideoState;
+    isPlaying: boolean;
 }
 
-export function Footer({onToggle, onPlayPause}:IFooterProps) {
+export function Footer({onToggle, onPlayPause, isPlaying}:IFooterProps) {
     return (
         <div>
             <IconedButton className={styles.toggleBtn} name="scale" onClick={onToggle}/>
-            <IconedButton className={styles.playPauseBtn} name="playpause" onClick={onPlayPause}/>
+            <IconedButton className={styles.playPauseBtn} name={isPlaying ? 'pause': 'play'} onClick={onPlayPause}/>
         </div>
     )
 }

@@ -44,7 +44,7 @@ export function Page() {
                     className={state.value === PlayerState.FULL ? styles.full : styles.mini}
                     onCancel={hideModal}
                     bodyStyle={{paddingTop: 50}}
-                    footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => setPlaying(!isPlaying)}/>}
+                    footer={<Footer onToggle={() => send('toggle')} onPlayPause={() => setPlaying(!isPlaying)} isPlaying={isPlaying}/>}
                 >
                     <ReactPlayer
                         url={videoUrl}

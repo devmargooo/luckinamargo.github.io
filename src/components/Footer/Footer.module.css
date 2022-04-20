@@ -15,6 +15,7 @@
     border-color: #40a9ff;
 }
 
+
 .playPauseBtn {
     background-image: none;
     background: #fff;
@@ -24,11 +25,8 @@
     color: rgba(0,0,0,.85);
     cursor: pointer;
     display: inline-block;
-    font-size: 14px;
-    font-weight: 400;
-    height: 32px;
-    line-height: 1.5715;
-    padding: 4px 15px;
+    height: 35px;
+    padding: 4px 10px;
     position: relative;
     text-align: center;
     touch-action: manipulation;
@@ -37,9 +35,11 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    white-space: nowrap;
 }
 
 .playPauseBtn:hover {
     border-color: #40a9ff;
 }
+
+
+

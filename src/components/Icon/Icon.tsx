@@ -1,5 +1,7 @@
 import playpause from "../../icons/playpause.svg";
 import scale from "../../icons/scale.svg";
+import pause from "../../icons/pause.svg"
+import play from '../../icons/play.svg'
 
 function map(name:string) {
     switch (name) {
@@ -7,7 +9,11 @@ function map(name:string) {
             return playpause;
         case 'scale':
             return scale;
-        default:
+        case 'pause':
+            return pause;
+        case 'play':
+            return play;
+         default:
             return '';
     }
 }
