@@ -9,7 +9,8 @@ import { PlayerState } from './interfaces';
 import { getPlayerMachine } from './getPlayerMachine';
 import { colorPause,colorPLay } from './consts'
 
-const videoUrl = "https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8";
+// const videoUrl = "https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8";
+const videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
 
 export function Page() {
